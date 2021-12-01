@@ -9,11 +9,11 @@ struct point {
     float T_max;
 };
 
-/*struct param {
+struct param {
     float a;
     float b;
     float c;
-};*/
+};
 
 struct point ** Creer_liste ( float T_max){
     float dt = 0.01;
