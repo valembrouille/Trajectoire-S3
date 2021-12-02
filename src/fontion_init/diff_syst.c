@@ -30,8 +30,11 @@ void entree_choixsyst(int * a){
     lireEntier(a);
     if (*a==1){
         printf("Le systeme choisi est celui des Forces de Lorenz");
+        /*coord_Traj(lorenz (M, p), p->T_max);
+        splot(file)*/
     }else if(*a==4){
         printf("Vous rentrez vous meme les coordonnees");
+        coord_Traj(polonaise (M, p), p->T_max);
     }else{
         printf("Ce numero n'est attribue a aucun systeme");
     }
