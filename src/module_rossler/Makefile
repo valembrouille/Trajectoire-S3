@@ -1,4 +1,4 @@
-# le fichier lorenz.c est dans le répertoire module_lorenz ainsi que ce Makefile 
+# le fichier rossler.c est dans le répertoire module_rossler ainsi que ce Makefile 
 # pour générer la bibliothèque dans le répertoire lib : 
 # > make 
 # pour supprimer les binaires 
@@ -23,10 +23,10 @@ INC= C:\Users\Meissem\projetS1.2\projetS1\include
 
  
 
-EXEC= liblorenz.a
+EXEC= librossler.a
 # cible 
 
-SRC=lorenz.c
+SRC=rossler.c
 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 
@@ -35,15 +35,15 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : lorenz.c $(INC)/.h
+$(EXEC) : rossler.c $(INC)/.h
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
 
     $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
 
-    ar rcs $(LIB)/liblorenz.a $(OBJ)
+    ar rcs $(LIB)/librossler.a $(OBJ)
     # les deux commandes suivantes créent la librairie  
 
-    ranlib $(LIB)/liblorenz.a
+    ranlib $(LIB)/librossler.a
     # dans le répertoire donné par LIB 
 
  
@@ -59,4 +59,4 @@ $(EXEC) : lorenz.c $(INC)/.h
 # permet de supprimer tous les binaires 
 
 clean:
-    rm $(LIB)/liblorenz.a  *.o
+    rm $(LIB)/librossler.a  *.o

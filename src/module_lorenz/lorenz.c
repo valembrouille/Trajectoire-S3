@@ -57,7 +57,7 @@ int main (){
 
     printf("[ a = %f , b = %f , c = %f , T_max=%f ]  \n", p->a, p->b, p->c, p->T_max);
 
-    aff_Traj(lorenz (M, p), p->T_max);
+    coord_Traj(lorenz (M, p), p->T_max);
     
     return 0;
 }
