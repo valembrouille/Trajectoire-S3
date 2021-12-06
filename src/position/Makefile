@@ -15,11 +15,11 @@ CFLAGS=  -Wextra -Wall -pedantic -g
 LDFLAGS=  -lm
 
 # emplacement des .a (librairies) du TP (à adapter à votre organisation) 
-LIB= C:\Users\Meissem\projetS1.2\projetS1\lib
+LIB= ../../lib
 
 # emplacement des .h du TP (à adapter à votre organisation) 
 
-INC= C:\Users\Meissem\projetS1.2\projetS1\include
+INC= ../../include
 
  
 
@@ -35,15 +35,15 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : position.c $(INC)/.h
+$(EXEC) : position.c $(INC)/position.h
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
 
-    $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
+	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
 
-    ar rcs $(LIB)/libposition.a $(OBJ)
+	ar rcs $(LIB)/libposition.a $(OBJ)
     # les deux commandes suivantes créent la librairie  
 
-    ranlib $(LIB)/libposition.a
+	ranlib $(LIB)/libposition.a
     # dans le répertoire donné par LIB 
 
  
@@ -52,11 +52,11 @@ $(EXEC) : position.c $(INC)/.h
 
 %.o: %.c %.h
 
-@$(CC) -o $*.o -c $*.c $(CFLAGS)
+	@$(CC) -o $*.o -c $*.c $(CFLAGS)
 
  
 
 # permet de supprimer tous les binaires 
 
 clean:
-    rm $(LIB)/libposition.a  *.o
+	rm $(LIB)/libposition.a  *.o

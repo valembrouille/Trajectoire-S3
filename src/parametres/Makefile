@@ -15,11 +15,11 @@ CFLAGS=  -Wextra -Wall -pedantic -g
 LDFLAGS=  -lm
 
 # emplacement des .a (librairies) du TP (à adapter à votre organisation) 
-LIB= C:\Users\Meissem\projetS1.2\projetS1\lib
+LIB= ../../lib
 
 # emplacement des .h du TP (à adapter à votre organisation) 
 
-INC= C:\Users\Meissem\projetS1.2\projetS1\include
+INC= ../../include
 
  
 
@@ -35,15 +35,15 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : param.c $(INC)/.h
+$(EXEC) : param.c $(INC)/param.h
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
 
-    $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
+	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
 
-    ar rcs $(LIB)/libparam.a $(OBJ)
+	ar rcs $(LIB)/libparam.a $(OBJ)
     # les deux commandes suivantes créent la librairie  
 
-    ranlib $(LIB)/libparam.a
+	ranlib $(LIB)/libparam.a
     # dans le répertoire donné par LIB 
 
  
@@ -52,11 +52,11 @@ $(EXEC) : param.c $(INC)/.h
 
 %.o: %.c %.h
 
-@$(CC) -o $*.o -c $*.c $(CFLAGS)
+	@$(CC) -o $*.o -c $*.c $(CFLAGS)
 
  
 
 # permet de supprimer tous les binaires 
 
 clean:
-    rm $(LIB)/libparam.a  *.o
+	rm $(LIB)/libparam.a  *.o

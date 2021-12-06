@@ -32,15 +32,15 @@ void getT_MAX( Param p, float a ){
 }
 
 void setA (Param p, float n){
-    P->a = n;
+    p->a = n;
 }
 void setB (Param p, float n){
-    P->b = n;
+    p->b = n;
 }
 void setC (Param p, float n){
-    P->c = n;
+    p->c = n;
 }
 void setT_MAX (Param p, float n){
-    P->T_max = n;
+    p->T_max = n;
 }
 
