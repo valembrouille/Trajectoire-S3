@@ -1,0 +1,4 @@
+C:\msys64\usr\share\bash-completion\completions.exe all -f "D:\Meissem\home\Documents\GitHub\projetS1\src\module_lorenz" --print-data-base --no-builtin-variables --no-builtin-rules --question
+'"C:\msys64\usr\share\bash-completion\completions.exe"' is not recognized as an internal or external command,
+operable program or batch file.
+ 

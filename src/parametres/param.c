@@ -18,18 +18,29 @@ Param creer_param( float a, float b, float c, float T_max){
     return p;
 }
 
+void getA( Param p, float a ){
+    a = p->a;
+}
+void getB( Param p, float a ){
+    a = p->b;
+}
+void getC( Param p, float a ){
+    a = p->c;
+}
+void getT_MAX( Param p, float a ){
+    a = p->T_max;
+}
 
+void setA (Param p, float n){
+    P->a = n;
+}
+void setB (Param p, float n){
+    P->b = n;
+}
+void setC (Param p, float n){
+    P->c = n;
+}
+void setT_MAX (Param p, float n){
+    P->T_max = n;
+}
 
-/*param * entree_parametres(float*a, float*b, float*c){
-    printf("a=");
-    lireDecimal(a);
-    printf("b=");
-    lireDecimal(b);
-    printf("c=");
-    lireDecimal(c);
-    param * param;
-    param->a=a;
-    param->b=b;
-    param->c=c;
-    return param;
-}*/

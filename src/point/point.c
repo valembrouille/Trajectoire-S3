@@ -11,12 +11,31 @@ typedef struct _point_s{
 
 Point creer_point( float x, float y, float z ){
     Point M = malloc(sizeof(point_s));
-    M->a = x;
-    M->b = y;
-    M->c = z;
+    M->x = x;
+    M->y = y;
+    M->z = z;
     return M;
 }
 
+void getX( Point M, float a ){
+    a = M->x;
+}
+void getY( Point M, float a ){
+    a = M->y;
+}
+void getZ( Point M, float a ){
+    a = M->z;
+}
+
+void setX (Point M, float n){
+    M->x = n;
+}
+void setY (Point M, float n){
+    M->y = n;
+}
+void setZ (Point M, float n){
+    M->z = n;
+}
 
 /* Point * entree_Point(float x, float y, float z){
     printf("x=");
