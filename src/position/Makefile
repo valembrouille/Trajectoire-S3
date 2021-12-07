@@ -35,15 +35,12 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : position.c $(INC)/position.h
+$(EXEC) : $(OBJ)
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
-
-	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
-
-	ar rcs $(LIB)/libposition.a $(OBJ)
+# $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
+	ar rcs $(LIB)/$(EXEC) $(OBJ)
     # les deux commandes suivantes créent la librairie  
-
-	ranlib $(LIB)/libposition.a
+	ranlib $(LIB)/$(EXEC)
     # dans le répertoire donné par LIB 
 
  
@@ -51,7 +48,6 @@ $(EXEC) : position.c $(INC)/position.h
 # génère les .o  
 
 %.o: %.c %.h
-
 	@$(CC) -o $*.o -c $*.c $(CFLAGS)
 
  
@@ -59,4 +55,4 @@ $(EXEC) : position.c $(INC)/position.h
 # permet de supprimer tous les binaires 
 
 clean:
-	rm $(LIB)/libposition.a  *.o
+	rm -f $(LIB)/$(EXEC)  *.o

@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/entrees.h"
-#include "../../include/lorenz.h"
-#include "../../include/position.h"
-#include "../../include/param.h"
 #include "../../include/point.h"
+#include "../../include/position.h"
+#include "../../include/entrees.h"
+#include "../../include/param.h"
+
+#include "../../include/lorenz.h"
 
 Point lire_point(){
     float x;
@@ -49,11 +50,11 @@ Position * Creer_liste ( float T_max){
 
 Position * lorenz (Point M, Param p){
     float dt = 0.01;
-
-    getA(p, float a);
-    getB(p, float b);
-    getC(p, float c);
-    getT_MAX(p, float T_max);
+    float a,b,c,T_max, t;
+    a= getA(p );
+    b= getB(p);
+    c= getC(p);
+    T_max = getT_MAX(p);
     int N = T_max / dt;
 
     Position * L = Creer_liste( p->T_max );
@@ -67,8 +68,8 @@ Position * lorenz (Point M, Param p){
         L[i]->point->y = L[i-1]->point->y + (L[i-1]->point->x * (b - L[i-1]->point->z) - L[i-1]->point->y) * dt;
         L[i]->point->z = L[i-1]->point->z + (L[i-1]->point->x * L[i-1]->point->y - c * L[i-1]->point->z) * dt;
         L[i]->t = L[i-1]->t + dt;
-        getT(L[i-1], float t);
-        setT( L[i] , t+dt )
+        t= getT(L[i-1]);
+        setT( L[i] , t+dt );
     }
     return L;
 }

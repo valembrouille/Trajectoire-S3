@@ -21,7 +21,7 @@ LIB= ../../lib
 
 INC= ../../include
 
-HEADS = $(shell find ../../include -type f -name *.h) 
+#HEADS = $(shell find ../../include -type f -name *.h) 
 
 EXEC= liblorenz.a
 # cible 
@@ -35,12 +35,12 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : lorenz.c $(HEADS)
+$(EXEC) : $(OBJ)
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
-	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
-	ar rcs $(LIB)/liblorenz.a $(OBJ)
+# $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
+	ar rcs $(LIB)/$(EXEC) $(OBJ)
     # les deux commandes suivantes créent la librairie  
-	ranlib $(LIB)/liblorenz.a
+	ranlib $(LIB)/$(EXEC)
     # dans le répertoire donné par LIB 
 
  
@@ -55,4 +55,4 @@ $(EXEC) : lorenz.c $(HEADS)
 # permet de supprimer tous les binaires 
 
 clean:
-	rm $(LIB)/liblorenz.a  *.o
+	rm -f $(LIB)/$(EXEC)  *.o

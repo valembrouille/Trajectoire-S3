@@ -34,29 +34,24 @@ OBJ= $(SRC:.c=.o)
 all : $(EXEC)
 
 # compilation et génération de la librairie 
-
-$(EXEC) : param.c $(INC)/param.h
+#$(EXEC) : param.c $(INC)/param.h
+$(EXEC) :$(OBJ)
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
-
-	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
-
+#	$(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
 	ar rcs $(LIB)/libparam.a $(OBJ)
     # les deux commandes suivantes créent la librairie  
-
 	ranlib $(LIB)/libparam.a
     # dans le répertoire donné par LIB 
 
  
 
 # génère les .o  
-
 %.o: %.c %.h
-
-	@$(CC) -o $*.o -c $*.c $(CFLAGS)
+	@$(CC) -I $(INC) -o $*.o -c $*.c $(CFLAGS)
 
  
 
 # permet de supprimer tous les binaires 
 
 clean:
-	rm $(LIB)/libparam.a  *.o
+	rm $(LIB)/$(EXEC)  *.o
