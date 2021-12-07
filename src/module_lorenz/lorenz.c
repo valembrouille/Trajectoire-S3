@@ -53,7 +53,7 @@ Position * lorenz (Point M, Param p){
     getA(p, float a);
     getB(p, float b);
     getC(p, float c);
-    getT_MAX(p, float * T_max);
+    getT_MAX(p, float T_max);
     int N = T_max / dt;
 
     Position * L = Creer_liste( p->T_max );
