@@ -3,7 +3,8 @@
 
 
 
-
+Point lire_point();
+Param lire_param();
 
 Position * Creer_liste ( float T_max);
 Position * lorenz (Point M, Param param);

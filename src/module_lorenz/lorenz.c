@@ -4,7 +4,6 @@
 #include "../../include/position.h"
 #include "../../include/entrees.h"
 #include "../../include/param.h"
-
 #include "../../include/lorenz.h"
 
 Point lire_point(){

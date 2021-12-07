@@ -13,8 +13,8 @@ LIB= ../../lib
 # emplacement des .h du TP 
 INC= ../../include
 # permet d'exécuter en mode debug (génère les informations nécessaires au debugger) 
-EXEC= libfonction_init.a
-SRC=diff_syst.c entrees.c
+EXEC= libentrees.a
+SRC= entrees.c
 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 
