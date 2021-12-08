@@ -4,9 +4,6 @@
 #include <stdbool.h>
 #include "../../include/entrees.h"
 
-
-<<<<<<< HEAD
-
 #include <string.h> // Penser à inclure string.h pour strchr()
  
 
@@ -15,8 +12,6 @@ int lireEntier(){
 }
 
 
-=======
->>>>>>> ec3b9e16f1a2d6cb54534613a6cd1a3645c71da1
 int lireFinDeLigne(){
     int count =0;
     char s;
