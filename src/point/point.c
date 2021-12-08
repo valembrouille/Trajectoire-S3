@@ -9,12 +9,6 @@ typedef struct _point_s{
 } point_s ;
 
 
-Point creer_point( float x, float y, float z ){
-    Point M = allouer_point(); //malloc(sizeof(point_s));
-    setPoint(M,x,y,z);
-    return M;
-}
-
 void setPoint( Point M, float x, float y, float z ){
 
     M->x = x;
@@ -24,6 +18,12 @@ void setPoint( Point M, float x, float y, float z ){
 }
 Point allouer_point(){
     return malloc(sizeof(point_s));
+}
+
+Point creer_point( float x, float y, float z ){
+    Point M = allouer_point(); //malloc(sizeof(point_s));
+    setPoint(M,x,y,z);
+    return M;
 }
 
 float getX( Point M ){
@@ -46,19 +46,3 @@ void setZ (Point M, float n){
     M->z = n;
 }
 
-/* Point * entree_Point(float x, float y, float z){
-    printf("x=");
-    lireDecimal(x);
-    printf("y=");
-    lireDecimal(y);
-    printf("z=");
-    lireDecimal(z);
-    printf("temps max=");
-    lireDecimal(tps);
-    Point * point;
-    point->x=x;
-    point->y=y;
-    point->z=z;
-    point->tps=tps;
-    return point;
-}*/

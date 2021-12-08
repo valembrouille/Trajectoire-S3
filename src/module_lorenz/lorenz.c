@@ -62,7 +62,7 @@ Position * lorenz (Point M, Param p, float dt){
     int N = T_max / dt;
     //printf ("lorenz_1 \n");
 
-    Position * L = Creer_liste_position( p->T_max,dt );
+    Position * L = Creer_liste_position( getT_MAX(p),dt );
     //printf ("lorenz_2 \n");
     setPOINT_Dans_Position(L[0],M );
     /*Point point0 = getPOINT_DE_POSITION(L[0]);
@@ -99,4 +99,4 @@ Position * lorenz (Point M, Param p, float dt){
 }
 
 
-}
+

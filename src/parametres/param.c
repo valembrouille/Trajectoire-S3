@@ -2,14 +2,28 @@
 #include <stdlib.h>
 #include "../../include/param.h"
 
+typedef struct _param_s{
+    float a;
+    float b;
+    float c;
+    float T_max;
+} param_s ;
 
+Param allouer_param(){
+    return malloc(sizeof(param_s));
+}
 
-Param creer_param( float a, float b, float c, float T_max){
-    Param p = malloc(sizeof(param_s));
+void setParam( Param p, float a, float b, float c, float T_max ){
     p->a = a;
     p->b = b;
     p->c = c;
     p->T_max = T_max;
+
+}
+
+Param creer_param( float a, float b, float c, float T_max ){
+    Param p = allouer_param(); //malloc(sizeof(param_s));
+    setParam(p,a,b,c,T_max);
     return p;
 }
 

@@ -37,7 +37,7 @@ Param lire_param(){
     return param;
 }
 
-Position * Creer_liste ( float T_max){
+/*Position * Creer_liste ( float T_max){
     float dt = 0.01;
     int N = T_max / dt;  //fréquence de calcul sur [0,T_max]
     Position * L = malloc( N * sizeof(Position) );   //liste de coordonnées en fontion du temps
@@ -45,38 +45,49 @@ Position * Creer_liste ( float T_max){
         L[i]= malloc(sizeof(position_s));
     }
     return L;
-}
-
-Position * rossler (Point  M, Param  p){
-    float dt = 0.01;
+}*/
+Position * rossler (Point M, Param p, float dt){
+    //float dt = 0.01; 
     float a,b,c,T_max, t;
     a= getA(p );
     b= getB(p);
     c= getC(p);
     T_max = getT_MAX(p);
     int N = T_max / dt;
+    //printf ("lorenz_1 \n");
 
-    Position * L = Creer_liste( p->T_max );
+    Position * L = Creer_liste_position( getT_MAX(p),dt );
+    //printf ("lorenz_2 \n");
+    setPOINT_Dans_Position(L[0],M );
+    /*Point point0 = getPOINT_DE_POSITION(L[0]);
+    setPoint(point0, getX(M), getY(M),getZ(M) );
+    */
+    /*
     L[0]->point->x = getX(M);
     L[0]->point->y = getY(M);
     L[0]->point->z = getZ(M);
-    L[0]->t = 0;
-
+    */
+    //printf ("lorenz_3 \n");
+    
+    setT(L[0],0);
+    //L[0]->t = 0;
+    //printf ("lorenz_4 \n");
+    Point pointI;
+    Point pointIMoin1;
 
     for (int i=1; i<N; i++){
-        L[i]->point->x = L[i-1]->point->x + ( - L[i-1]->point->y - L[i-1]->point->z ) * dt;
-        L[i]->point->y = L[i-1]->point->y + ( L[i-1]->point->x + a * L[i-1]->point->y ) * dt;
-        L[i]->point->z = L[i-1]->point->z + ( b + L[i-1]->point->z * ( L[i-1]->point->x - c )) * dt;
-        L[i]->t = L[i-1]->t + dt;
-        t= getT(L[i-1]);
+        //printf ("lorenz_5 \n");
+        pointI = getPOINT_DE_POSITION(L[i]);
+        pointIMoin1 = getPOINT_DE_POSITION(L[i-1]);
+        setX (pointI, getX(pointIMoin1) + (- getY(pointIMoin1) - getZ(pointIMoin1)) * dt);
+        setY(pointI,getY(pointIMoin1) + (getX(pointIMoin1) + a * getY(pointIMoin1)) * dt);
+        setZ(pointI,getZ(pointIMoin1) + (b + getZ(pointIMoin1) * (getX(pointIMoin1) - c )) * dt);
+        //setT(L[i], getT(L[i-1]) +dt);
+        //L[i]->t = L[i-1]->t + dt;
+        t = getT(L[i-1]);
         setT( L[i] , t+dt );
     }
-    return L;
-}
+    //printf ("lorenz_6 \n");
 
-void aff_Traj(Position*  L, float T_max){
-    int N = T_max / 0.01; //longueur de la liste = N
-    for (int i=0; i<N; i++){
-        printf("%f %f %f %f\n", L[i]->t, L[i]->point->x, L[i]->point->y, L[i]->point->z);
-    }
+    return L;
 }

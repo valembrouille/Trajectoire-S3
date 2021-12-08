@@ -35,9 +35,9 @@ int main (){
     
     }else if (a==2){
         printf("Le systeme choisi est celui des Forces de Rossler");
-        Point M = lire_point();
-        Param param = lire_param();
-        //rossler ( M, param ) ;
+        M = lire_point();
+        param = lire_param();
+        pos = rossler ( M, param, dt ) ;
         //coord_Traj(rossler (M, param), getT(param));
 
     }else {
