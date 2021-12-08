@@ -47,7 +47,7 @@ Position * Creer_liste ( float T_max){
     return L;
 }
 
-Position * rossler (Point * M, Param * p){
+Position * rossler (Point  M, Param  p){
     float dt = 0.01;
     float a,b,c,T_max, t;
     a= getA(p );
@@ -66,7 +66,7 @@ Position * rossler (Point * M, Param * p){
     for (int i=1; i<N; i++){
         L[i]->point->x = L[i-1]->point->x + ( - L[i-1]->point->y - L[i-1]->point->z ) * dt;
         L[i]->point->y = L[i-1]->point->y + ( L[i-1]->point->x + a * L[i-1]->point->y ) * dt;
-        L[i]->point->z = L[i-1]->point->z + ( b + L[i-1]->point->z * ( L[i-1]->point->x - c ) * dt;
+        L[i]->point->z = L[i-1]->point->z + ( b + L[i-1]->point->z * ( L[i-1]->point->x - c )) * dt;
         L[i]->t = L[i-1]->t + dt;
         t= getT(L[i-1]);
         setT( L[i] , t+dt );
@@ -74,9 +74,9 @@ Position * rossler (Point * M, Param * p){
     return L;
 }
 
-void aff_Traj(Point ** L, float T_max){
+void aff_Traj(Position*  L, float T_max){
     int N = T_max / 0.01; //longueur de la liste = N
     for (int i=0; i<N; i++){
-        printf("%f %f %f %f\n", L[i]->T_max, L[i]->x, L[i]->y, L[i]->z);
+        printf("%f %f %f %f\n", L[i]->t, L[i]->point->x, L[i]->point->y, L[i]->point->z);
     }
 }

@@ -6,10 +6,12 @@
 
 
 
+#include <string.h> // Penser à inclure string.h pour strchr()
+ 
 
-
-
-
+int lireEntier(){
+    return 1
+}
 
 
 int lireFinDeLigne(){

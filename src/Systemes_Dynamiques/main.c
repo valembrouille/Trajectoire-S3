@@ -1,33 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/point.h"
-#include "../../include/position.h"
 #include "../../include/entrees.h"
 #include "../../include/param.h"
+#include "../../include/point.h"
+#include "../../include/position.h"
+
 #include "../../include/lorenz.h"
-#include "../../include/rossler.h"
+//#include "../../include/rossler.h"
 
 int main (){
     printf("\nQuel systeme voulez vous utiliser?\n-Tapez 1: Lorenz\n-Tapez 2: Rossler\n-Tapez 3: Je veux rentrer mes propres parametres et variations de vitesse\n");
     int a;
-    lireEntier(a);
-    while (a!=1 || a!=2 || a!=3){
-        printf("Veuillez choisir un système de la LISTE")
-        lireEntier(a);
+    Position *pos;
+    Point M;
+    Param param ;
+    a= lireEntier();
+    printf("Le système choisi est %d", a);
+    while ( a != 1 && a != 2 && a!=3){
+        printf("Veuillez choisir un système de la LISTE");
+        a = lireEntier();
+        
     }
+    printf("Le système choisi est %d", a);
+
+
     if (a==1){
         printf("Le systeme choisi est celui des Forces de Lorenz");
-        Point M = lire_point();
-        Param param = lire_param();
-        lorenz ( M, param ) ;
-        coord_Traj(lorenz (M, param), getT(param));
+        M = lire_point();
+        param = lire_param();
+        pos =  lorenz ( M,  param);
+        
+        //coord_Traj(lorenz (M, param), getT(param));
     
     }else if (a==2){
         printf("Le systeme choisi est celui des Forces de Rossler");
         Point M = lire_point();
         Param param = lire_param();
-        rossler ( M, param ) ;
-        coord_Traj(rossler (M, param), getT(param));
+        //rossler ( M, param ) ;
+        //coord_Traj(rossler (M, param), getT(param));
 
     }else {
         printf("Vous rentrez vous même les coordonnées");

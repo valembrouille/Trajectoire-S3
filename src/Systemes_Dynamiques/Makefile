@@ -13,9 +13,9 @@ LIB= ../../lib
 # emplacement des .h du TP 
 INC= ../../include
 # permet d'exécuter en mode debug (génère les informations nécessaires au debugger) 
-EXEC= libentrees.a
-SRC= entrees.c diff_syst.c
-
+EXEC= SystemesDynamiques
+SRC= main.c
+LIBS=  $(LIB)/liblorenz.a $(LIB)/librossler.a  $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 
 
@@ -23,22 +23,15 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : $(OBJ)
-# indique la dépendance de fichiers pour produire la lib (commenter si pb) 
-	ar rcs $(LIB)/$(EXEC) $(OBJ)
-    # les deux commandes suivantes créent la librairie  
-	ranlib $(LIB)/$(EXEC)
-    # dans le répertoire donné par LIB 
-
+$(EXEC) : $(SRC)
+	$(CC) $(SRC) -o $(EXEC) -L. $(LIBS)
  
 
-# génère les .o  
-%.o: %.c %.h
-	@$(CC) -o $*.o -c $*.c $(CFLAGS)
+
 
  
 
 # permet de supprimer tous les binaires 
 
 clean:
-	rm -f $(LIB)/$(EXEC)  *.o
+	rm -f $(EXEC)  

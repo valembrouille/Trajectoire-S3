@@ -2,7 +2,7 @@
 #define __ENTREES__
 
 
-
+int lireEntier();
 int lireFinDeLigne();
 void  lireDecimal ( float *v);
 

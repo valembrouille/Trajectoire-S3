@@ -22,10 +22,3 @@ void entree_choixsyst(int a){
 void choix_syst(){
     
 }
-
-/*int main(){
-    int a;
-    entree_choixsyst(&a);
-
-    return 0;
-}*/
