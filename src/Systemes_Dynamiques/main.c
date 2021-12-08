@@ -17,15 +17,15 @@ int main (){
     a= lireEntier();
     printf("Le système choisi est %d", a);
     while ( a != 1 && a != 2 && a!=3){
-        printf("Veuillez choisir un système de la LISTE");
+        printf("Veuillez choisir un système de la LISTE\n");
         a = lireEntier();
         
     }
-    printf("Le système choisi est %d", a);
+   // printf("Le système choisi est %d", a);
 
 
     if (a==1){
-        printf("Le systeme choisi est celui des Forces de Lorenz");
+        printf("Le systeme choisi est celui des Forces de Lorenz\n");
         M = lire_point();
         param = lire_param();
         pos =  lorenz ( M,  param);
@@ -48,7 +48,7 @@ int main (){
     // 1.  demande à l'utilisateur de choisir un système de la liste affichié, 
     // 2.  demande à l'utilisateur d'initialiser les paramètres et le point initial 
     // 3.  calcule les coordonnées en fonction du temps selon le système choisi
-    // 4.  les affichent selon le format demandé par gnuplot sur l'écran (sortie pas encore dirigée dans un fichier) 
+    // 4.  les affiche selon le format demandé par gnuplot sur l'écran (sortie pas encore dirigée dans un fichier) 
     return 0;
 }
 

@@ -19,7 +19,7 @@ LIBS=  $(LIB)/liblorenz.a $(LIB)/librossler.a  $(LIB)/libentrees.a $(LIB)/libpar
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 
 
-all : $(EXEC)
+all : clean $(EXEC) 
 
 # compilation et génération de la librairie 
 

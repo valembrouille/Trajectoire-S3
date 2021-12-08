@@ -41,29 +41,36 @@ Param lire_param(){
 Position * Creer_liste ( float T_max){
     float dt = 0.01;
     int N = T_max / dt;  //fréquence de calcul sur [0,T_max]
-    Position * L = malloc( N * sizeof(Position) );   //liste de coordonnées en fontion du temps
-    for (int i=0; i < N; i++){
+    Position * L = malloc( (N + 1) * sizeof(Position) );   //liste de coordonnées en fontion du temps
+   // printf (" N= %d N * sizeof(Position) = %ld \n",N,  (N+1) * sizeof(Position)  );
+    for (int i=0; i < N + 1; i++){
+  //printf ("creer_liste_9 \n");
         L[i]= malloc(sizeof(position_s));
+        L[i]->point = malloc(sizeof(point_s));
     }
+  //printf ("creer_liste_10 \n");
     return L;
 }
 
 Position * lorenz (Point M, Param p){
-    float dt = 0.01;
+    float dt = 0.01; 
     float a,b,c,T_max, t;
     a= getA(p );
     b= getB(p);
     c= getC(p);
     T_max = getT_MAX(p);
     int N = T_max / dt;
-
+    printf ("lorenz_1 \n");
     Position * L = Creer_liste( p->T_max );
     L[0]->point->x = getX(M);
     L[0]->point->y = getY(M);
     L[0]->point->z = getZ(M);
     L[0]->t = 0;
+    //printf ("lorenz_2 \n");
 
     for (int i=1; i<N; i++){
+    //printf ("lorenz_3 \n");
+
         L[i]->point->x = L[i-1]->point->x + a * (L[i-1]->point->y - L[i-1]->point->x) * dt;
         L[i]->point->y = L[i-1]->point->y + (L[i-1]->point->x * (b - L[i-1]->point->z) - L[i-1]->point->y) * dt;
         L[i]->point->z = L[i-1]->point->z + (L[i-1]->point->x * L[i-1]->point->y - c * L[i-1]->point->z) * dt;
@@ -71,6 +78,8 @@ Position * lorenz (Point M, Param p){
         t= getT(L[i-1]);
         setT( L[i] , t+dt );
     }
+      //  printf ("lorenz_4 \n");
+
     return L;
 }
 
