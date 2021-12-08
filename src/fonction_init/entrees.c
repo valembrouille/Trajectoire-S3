@@ -8,7 +8,15 @@
  
 
 int lireEntier(){
-    return 1;
+    int v;
+    int lu;
+    int nbEff;
+    do{
+        lu= scanf ( "%d" ,&v);
+        nbEff= lireFinDeLigne ();
+    } while ((lu!= 1 )&&(nbEff> 0 ))
+    ;
+    return v;
 }
 
 
