@@ -4,6 +4,7 @@
 #include "../../include/position.h"
 #include "../../include/entrees.h"
 #include "../../include/param.h"
+#include "../../include/common.h"
 #include "../../include/lorenz.h"
 
 Point lire_point(){
@@ -37,7 +38,7 @@ Param lire_param(){
     return param;
 }
 
-
+/*
 Position * Creer_liste ( float T_max){
     float dt = 0.01;
     int N = T_max / dt;  //fréquence de calcul sur [0,T_max]
@@ -50,42 +51,59 @@ Position * Creer_liste ( float T_max){
     }
   //printf ("creer_liste_10 \n");
     return L;
-}
+}*/
 
-Position * lorenz (Point M, Param p){
-    float dt = 0.01; 
+Position * lorenz (Point M, Param p, float dt){
+    //float dt = 0.01; 
     float a,b,c,T_max, t;
     a= getA(p );
     b= getB(p);
     c= getC(p);
     T_max = getT_MAX(p);
     int N = T_max / dt;
-    printf ("lorenz_1 \n");
-    Position * L = Creer_liste( p->T_max );
+    //printf ("lorenz_1 \n");
+
+    Position * L = Creer_liste_position( p->T_max,dt );
+    //printf ("lorenz_2 \n");
+    setPOINT_Dans_Position(L[0],M );
+    /*Point point0 = getPOINT_DE_POSITION(L[0]);
+    setPoint(point0, getX(M), getY(M),getZ(M) );
+    */
+    /*
     L[0]->point->x = getX(M);
     L[0]->point->y = getY(M);
     L[0]->point->z = getZ(M);
-    L[0]->t = 0;
-    //printf ("lorenz_2 \n");
+    */
+    //printf ("lorenz_3 \n");
+    
+    setT(L[0],0);
+    //L[0]->t = 0;
+    //printf ("lorenz_4 \n");
+    Point pointI;
+    Point pointIMoin1;
 
     for (int i=1; i<N; i++){
-    //printf ("lorenz_3 \n");
-
-        L[i]->point->x = L[i-1]->point->x + a * (L[i-1]->point->y - L[i-1]->point->x) * dt;
-        L[i]->point->y = L[i-1]->point->y + (L[i-1]->point->x * (b - L[i-1]->point->z) - L[i-1]->point->y) * dt;
-        L[i]->point->z = L[i-1]->point->z + (L[i-1]->point->x * L[i-1]->point->y - c * L[i-1]->point->z) * dt;
-        L[i]->t = L[i-1]->t + dt;
+        //printf ("lorenz_5 \n");
+        pointI = getPOINT_DE_POSITION(L[i]);
+        pointIMoin1 = getPOINT_DE_POSITION(L[i-1]);
+        setX (pointI, getX(pointIMoin1) + a * (getY(pointIMoin1) - getX(pointIMoin1)) * dt);
+        setY(pointI,getY(pointIMoin1) + (getX(pointIMoin1) * (b - getZ(pointIMoin1)) - getY(pointIMoin1)) * dt);
+        setZ(pointI,getZ(pointIMoin1) + (getX(pointIMoin1) * getY(pointIMoin1) - c * getZ(pointIMoin1)) * dt);
+        //setT(L[i], getT(L[i-1]) +dt);
+        //L[i]->t = L[i-1]->t + dt;
         t= getT(L[i-1]);
         setT( L[i] , t+dt );
     }
-      //  printf ("lorenz_4 \n");
+    //printf ("lorenz_6 \n");
 
     return L;
 }
 
-void coord_Traj(Position * L, float T_max){
-    int N = T_max / 0.01; //longueur de la liste = N
+void coord_Traj(Position * L, float T_max, float dt){
+    int N = T_max / dt; //longueur de la liste = N
+    Point pointI;
     for (int i=0; i<N; i++){
-        printf("%f %f %f %f\n", L[i]->t, L[i]->point->x, L[i]->point->y, L[i]->point->z);
+        pointI = getPOINT_DE_POSITION(L[i]);
+        printf("%f %f %f %f\n", getT(L[i]), getX(pointI),getY(pointI),getZ( pointI));
     }
 }

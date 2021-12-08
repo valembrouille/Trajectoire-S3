@@ -15,7 +15,10 @@ INC= ../../include
 # permet d'exécuter en mode debug (génère les informations nécessaires au debugger) 
 EXEC= SystemesDynamiques
 SRC= main.c
-LIBS=  $(LIB)/liblorenz.a $(LIB)/librossler.a  $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
+
+LIBS=  $(LIB)/liblorenz.a $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
+
+# LIBS=  $(LIB)/liblorenz.a $(LIB)/librossler.a  $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 
 

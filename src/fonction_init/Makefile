@@ -14,7 +14,7 @@ LIB= ../../lib
 INC= ../../include
 # permet d'exécuter en mode debug (génère les informations nécessaires au debugger) 
 EXEC= libentrees.a
-SRC= entrees.c diff_syst.c
+SRC= common.c entrees.c diff_syst.c
 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 

@@ -1,14 +1,11 @@
 #ifndef __POINT__
 #define __POINT__
-typedef struct _point_s{
-    float x;
-    float y;
-    float z;
-} point_s ;
+
 
 typedef struct _point_s * Point;
 
-
+Point allouer_point();
+void setPoint( Point M,float x, float y, float z );
 Point creer_point( float x, float y, float z );
 
 float getX( Point M );

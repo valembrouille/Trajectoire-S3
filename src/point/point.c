@@ -2,15 +2,28 @@
 #include <stdlib.h>
 #include "../../include/point.h"
 
-
+typedef struct _point_s{
+    float x;
+    float y;
+    float z;
+} point_s ;
 
 
 Point creer_point( float x, float y, float z ){
-    Point M = malloc(sizeof(point_s));
+    Point M = allouer_point(); //malloc(sizeof(point_s));
+    setPoint(M,x,y,z);
+    return M;
+}
+
+void setPoint( Point M, float x, float y, float z ){
+
     M->x = x;
     M->y = y;
     M->z = z;
-    return M;
+
+}
+Point allouer_point(){
+    return malloc(sizeof(point_s));
 }
 
 float getX( Point M ){
