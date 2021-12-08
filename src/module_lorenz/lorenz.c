@@ -50,11 +50,19 @@ Position * Creer_liste ( float T_max){
 
 Position * lorenz (Point M, Param p){
     float dt = 0.01;
+<<<<<<< HEAD
+
+    getA(p, float a);
+    getB(p, float b);
+    getC(p, float c);
+    getT_MAX(p, float T_max);
+=======
     float a,b,c,T_max, t;
     a= getA(p );
     b= getB(p);
     c= getC(p);
     T_max = getT_MAX(p);
+>>>>>>> d5ccc99e8fe6d68af04495d9830630b1fb8d48c6
     int N = T_max / dt;
 
     Position * L = Creer_liste( p->T_max );
