@@ -5,13 +5,6 @@
 #include "../../include/entrees.h"
 
 
-
-
-
-
-
-
-
 int lireFinDeLigne(){
     int count =0;
     char s;
