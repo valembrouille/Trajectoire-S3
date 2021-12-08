@@ -1,12 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/position.h"
 #include "../../include/point.h"
+#include "../../include/position.h"
 
-typedef struct _position_s{
-    Point point;
-    float t;
-} position_s ;
 
 Position creer_position( float x, float y, float z, float t){
     Position pos = malloc(sizeof(position_s));
@@ -15,22 +11,20 @@ Position creer_position( float x, float y, float z, float t){
     return pos;
 }
 
-void getPOINT( Position pos, Point a ){
-    a = pos->point;
+Point getPOINT( Position pos ){
+   return pos->point;
 }
-void getT( Position pos, float a ){
-    a = pos->point;
+float getT( Position pos ){
+    return pos->t;
 }
 
 void setPOINT( Position pos, Point M ){
-    getX(M, float x);
-    setX(pos->point->x = x);
+ 
+    setX(pos->point , getX(M));
 
-    getY(M, float y);
-    setY(pos->point->y = y);
+    setY(pos->point , getY(M));
 
-    getZ(M, float z);
-    setZ(pos->point->z = z);    
+    setZ(pos->point,  getZ(M));    
 
 }
 void setT( Position pos, float n ){

@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../include/entrees.h"
-#include "../../include/lorenz.h"
-#include "../../include/position.h"
-#include "../../include/param.h"
 #include "../../include/point.h"
+#include "../../include/position.h"
+#include "../../include/entrees.h"
+#include "../../include/param.h"
+#include "../../include/rossler.h"
 
 Point lire_point(){
     float x;
@@ -37,7 +37,6 @@ Param lire_param(){
     return param;
 }
 
-
 Position * Creer_liste ( float T_max){
     float dt = 0.01;
     int N = T_max / dt;  //fréquence de calcul sur [0,T_max]
@@ -50,11 +49,11 @@ Position * Creer_liste ( float T_max){
 
 Position * rossler (Point * M, Param * p){
     float dt = 0.01;
-
-    getA(p, float a);
-    getB(p, float b);
-    getC(p, float c);
-    getT_MAX(p, float * T_max);
+    float a,b,c,T_max, t;
+    a= getA(p );
+    b= getB(p);
+    c= getC(p);
+    T_max = getT_MAX(p);
     int N = T_max / dt;
 
     Position * L = Creer_liste( p->T_max );
@@ -63,11 +62,14 @@ Position * rossler (Point * M, Param * p){
     L[0]->point->z = getZ(M);
     L[0]->t = 0;
 
+
     for (int i=1; i<N; i++){
-        L[i]->x = L[i-1]->x + ( -L[i-1]->y - L[i-1]->z) * dt;
-        L[i]->y = L[i-1]->y + (L[i-1]->x + a * L[i-1]->y) * dt;
-        L[i]->z = L[i-1]->z + ( b + L[i-1]->z * (L[i-1]->x - c)) * dt;
-        L[i]->T_max = L[i-1]->T_max + dt;
+        L[i]->point->x = L[i-1]->point->x + ( - L[i-1]->point->y - L[i-1]->point->z ) * dt;
+        L[i]->point->y = L[i-1]->point->y + ( L[i-1]->point->x + a * L[i-1]->point->y ) * dt;
+        L[i]->point->z = L[i-1]->point->z + ( b + L[i-1]->point->z * ( L[i-1]->point->x - c ) * dt;
+        L[i]->t = L[i-1]->t + dt;
+        t= getT(L[i-1]);
+        setT( L[i] , t+dt );
     }
     return L;
 }

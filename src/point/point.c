@@ -3,11 +3,7 @@
 #include "../../include/point.h"
 
 
-typedef struct _point_s{
-    float x;
-    float y;
-    float z;
-} point_s ;
+
 
 Point creer_point( float x, float y, float z ){
     Point M = malloc(sizeof(point_s));
@@ -17,14 +13,14 @@ Point creer_point( float x, float y, float z ){
     return M;
 }
 
-void getX( Point M, float a ){
-    a = M->x;
+float getX( Point M ){
+    return M->x;
 }
-void getY( Point M, float a ){
-    a = M->y;
+float getY( Point M ){
+    return M->y;
 }
-void getZ( Point M, float a ){
-    a = M->z;
+float getZ( Point M ){
+    return M->z;
 }
 
 void setX (Point M, float n){

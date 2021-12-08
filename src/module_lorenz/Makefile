@@ -15,13 +15,13 @@ CFLAGS=  -Wextra -Wall -pedantic -g
 LDFLAGS=  -lm
 
 # emplacement des .a (librairies) du TP (à adapter à votre organisation) 
-LIB= C:\Users\Meissem\projetS1.2\projetS1\lib
+LIB= ../../lib
 
 # emplacement des .h du TP (à adapter à votre organisation) 
 
-INC= C:\Users\Meissem\projetS1.2\projetS1\include
+INC= ../../include
 
- 
+#HEADS = $(shell find ../../include -type f -name *.h) 
 
 EXEC= liblorenz.a
 # cible 
@@ -35,15 +35,12 @@ all : $(EXEC)
 
 # compilation et génération de la librairie 
 
-$(EXEC) : lorenz.c $(INC)/.h
+$(EXEC) : $(OBJ)
 # indique la dépendance de fichiers pour produire la lib (commenter si pb) 
-
-    $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
-
-    ar rcs $(LIB)/liblorenz.a $(OBJ)
+# $(CC) -o $(OBJ) -c $(SRC) $(CFLAGS)
+	ar rcs $(LIB)/$(EXEC) $(OBJ)
     # les deux commandes suivantes créent la librairie  
-
-    ranlib $(LIB)/liblorenz.a
+	ranlib $(LIB)/$(EXEC)
     # dans le répertoire donné par LIB 
 
  
@@ -51,12 +48,11 @@ $(EXEC) : lorenz.c $(INC)/.h
 # génère les .o  
 
 %.o: %.c %.h
-
-@$(CC) -o $*.o -c $*.c $(CFLAGS)
+	@$(CC) -o $*.o -c $*.c $(CFLAGS)
 
  
 
 # permet de supprimer tous les binaires 
 
 clean:
-    rm $(LIB)/liblorenz.a  *.o
+	rm -f $(LIB)/$(EXEC)  *.o
