@@ -4,7 +4,7 @@
 #include "../../include/param.h"
 #include "../../include/point.h"
 #include "../../include/position.h"
-
+#include "../../include/interface.h"
 #include "../../include/lorenz.h"
 //#include "../../include/rossler.h"
 
@@ -31,7 +31,7 @@ int main (){
         param = lire_param();
         pos =  lorenz ( M,  param, dt);
         
-        //coord_Traj(lorenz (M, param), getT(param),dt);
+        coord_Traj(pos , getT_MAX(param),dt);
     
     }else if (a==2){
         printf("Le systeme choisi est celui des Forces de Rossler");

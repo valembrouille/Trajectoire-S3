@@ -3,6 +3,6 @@
 
 
 
-
+void coord_Traj(Position * L, float T_max, float dt);
 
 #endif
