@@ -11,6 +11,9 @@ Il permet de calculer ensuite et grâce à tout ça la trajectoire d'un point da
 
 
 
+
+
+
 Plus en détail:
 
 fonction_init: 
