@@ -27,11 +27,6 @@ all : clean $(EXEC)
 
 $(EXEC) : $(SRC)
 	$(CC) $(SRC) -o $(EXEC) -L. $(LIBS)
- 
-
-
-
- 
 
 # permet de supprimer tous les binaires 
 
