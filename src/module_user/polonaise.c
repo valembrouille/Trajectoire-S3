@@ -35,6 +35,9 @@ void entree_polo(char*dx,char*dy,char*dz){
     printf("pour calculer la variation de vitesse selon z:\n");
     lire_carac(dz);
 } 
+/* On rentre les chaines de caractères*/
+
+
 /*
 int param_chaine_ok(char*c){
     int i=0;
@@ -63,9 +66,13 @@ int forme_chaine_ok(char*c,int i){
         }
     }
 }
+/* on teste les chaines*/
+
+
+/*Il faut utiliser les piles*/
+
 
 /*
-
 char polonaise_inv(char*c){
     char res= 0;
     if (param_chaine_ok(c)==1 && forme_chaine_ok(c,0)==1){
@@ -86,12 +93,3 @@ char polonaise_inv(char*c){
     }
 }
 */
-
-
-int main(){
-    char *dx; char*dy; char*dz;
-    entree_polo(dx,dy,dz);
-    forme_chaine_ok(dx,0);
-    forme_chaine_ok(dy,0);
-    forme_chaine_ok(dz,0);
-}

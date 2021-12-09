@@ -10,10 +10,6 @@ Le progamme en totalité demande à l'utilisateur de choisir entre différents s
 Il permet de calculer ensuite et grâce à tout ça la trajectoire d'un point dans un espace 3D. Il les met dans un liste dirigée vers un fichier qui peut être lu par gnuplot et tracé à l'aide de set prametric puis splot 'nom_du_fichier.dat' u 2:3:4 .
 
 
-
-
-
-
 Plus en détail:
 
 fonction_init: 
@@ -38,7 +34,7 @@ module_rossler:
 Utilise les conditions de Rossler. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
 
 module_user: 
-Demande à l'utilisateur de rentrer lui même ses coordonnées, conditions, paramètres etc dans un format spécial; celui de la polonaise inversée. Les fonctions ne sont pas finies ici.
+Demande à l'utilisateur de rentrer lui même ses coordonnées, conditions, paramètres etc dans un format spécial; celui de la polonaise inversée. Les fonctions ne sont pas finies ici. 
 
 Dans les 3 fonctions précédentes, celles de calcul, il y a les fonctions d'initialisation et de calcul pour chaque module.
 
