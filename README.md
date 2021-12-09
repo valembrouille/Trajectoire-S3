@@ -1,4 +1,4 @@
-# projetS1
+# projet S1
 
 Rouzade Ambre et Kammoun Meissem 
 
