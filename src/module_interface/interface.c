@@ -16,9 +16,7 @@ const float nan = 0.0/0.0;
     if (file == NULL){
          printf("Ereur ouverture fichier output \n");
     }
-
-
-
+    
     int N = T_max / dt; //longueur de la liste = N
     Point pointI;
     for (int i=0; i<N; i++){

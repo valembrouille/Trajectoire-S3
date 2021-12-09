@@ -8,5 +8,3 @@
 
 #include <string.h> // Penser à inclure string.h pour strchr()
  
-
-

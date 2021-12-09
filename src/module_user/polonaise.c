@@ -6,10 +6,10 @@
 int lireFinDeLigne(){
     int count =0;
     char s;
-    s= getchar(); //consomme un caractère du buffer=file
+    s= getchar();
     while ((s!=EOF) && (s!='\n')){
         if(!isspace(s)){
-            count ++; //pas un espace
+            count ++;
         }
         s=getchar();
     }
@@ -27,7 +27,7 @@ void  lire_carac ( char *v){
 
 
 void entree_polo(char*dx,char*dy,char*dz){
-    printf("Entrez vos formules en notation polonaise inversée.\n Ex: (b x y - *) = ((y-x)*b)\n");
+    printf("Entrez vos formules en notation polonaise inversee.\n Ex: (b x y - *) = ((y-x)*b)\n");
     printf("pour calculer la variation de vitesse selon x:\n");
     lire_carac(dx);
     printf("pour calculer la variation de vitesse selon y:\n");
@@ -35,7 +35,7 @@ void entree_polo(char*dx,char*dy,char*dz){
     printf("pour calculer la variation de vitesse selon z:\n");
     lire_carac(dz);
 } 
-
+/*
 int param_chaine_ok(char*c){
     int i=0;
     while (c[i]!=0){
@@ -44,7 +44,7 @@ int param_chaine_ok(char*c){
         }
     }
     return 0;
-}
+}*/
 
 int forme_chaine_ok(char*c,int i){
     if (c[i]==0){
@@ -64,7 +64,7 @@ int forme_chaine_ok(char*c,int i){
     }
 }
 
-
+/*
 
 char polonaise_inv(char*c){
     char res= 0;
@@ -77,25 +77,20 @@ char polonaise_inv(char*c){
         } 
         int i=0;
         while (c[i]!=0){
-            if (c[i]==){
+            if (c[i]=='x'){
                 
-            }else if (c[i]==){
-                res=y;
-            }
+            }else if(c[i]=='y'){
+                res='y';
             }
         }
-
     }
 }
-
+*/
 
 
 int main(){
-    int *dx; int *dy; int*dz;
+    char *dx; char*dy; char*dz;
     entree_polo(dx,dy,dz);
-    param_chaine_ok(dx);
-    param_chaine_ok(dy);
-    param_chaine_ok(dz);
     forme_chaine_ok(dx,0);
     forme_chaine_ok(dy,0);
     forme_chaine_ok(dz,0);
