@@ -54,20 +54,22 @@ Position * rossler (Point M, Param p, float dt){
     c= getC(p);
     T_max = getT_MAX(p);
     int N = T_max / dt;
-
+    printf ("Rossler_1");
 
     Position * L = Creer_liste_position( getT_MAX(p),dt );
  
     setPOINT_Dans_Position(L[0],M );
 
-
+    printf ("Rossler_2");
     Point pointI;
     Point pointIMoin1;
-
+    printf ("Rossler_3");
+    
     for (int i=1; i<N; i++){
-
+        printf   ("Rossler_4");
         pointI = getPOINT_DE_POSITION(L[i]);
         pointIMoin1 = getPOINT_DE_POSITION(L[i-1]);
+         
         setX (pointI, getX(pointIMoin1) + (- getY(pointIMoin1) - getZ(pointIMoin1)) * dt);
         setY(pointI,getY(pointIMoin1) + (getX(pointIMoin1) + a * getY(pointIMoin1)) * dt);
         setZ(pointI,getZ(pointIMoin1) + (b + getZ(pointIMoin1) * (getX(pointIMoin1) - c )) * dt);
@@ -75,6 +77,6 @@ Position * rossler (Point M, Param p, float dt){
         t = getT(L[i-1]);
         setT( L[i] , t+dt );
     }
-
+    printf ("Rossler_10");
     return L;
 }

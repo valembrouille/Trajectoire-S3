@@ -6,7 +6,7 @@
 #include "../../include/position.h"
 #include "../../include/interface.h"
 #include "../../include/lorenz.h"
-//#include "../../include/rossler.h"
+#include "../../include/rossler.h"
 
 int main (){
 //    printf("\nQuel systeme voulez vous utiliser?\n-Tapez 1: Lorenz\n-Tapez 2: Rossler\n-Tapez 3: Je veux rentrer mes propres parametres et variations de vitesse\n");
@@ -17,7 +17,7 @@ int main (){
     Point M;
     Param param ;
     a= lireEntier();
-    printf("Le système choisi est %d", a);
+    //printf("Le système choisi est %d", a);
     while ( a != 1 && a != 2/* && a!=3*/){
         printf("Veuillez choisir un système de la LISTE\n");
         a = lireEntier();
@@ -35,9 +35,11 @@ int main (){
         coord_Traj(pos , getT_MAX(param),dt, "lorenz.dat");
     
     }else if (a==2){
-        printf("Le systeme choisi est celui des Forces de Rossler");
+        printf("Le systeme choisi est celui des Forces de Rossler\n");
         M = lire_point();
         param = lire_param();
+        pos =  rossler ( M,  param, dt);
+        
         coord_Traj(pos , getT_MAX(param),dt, "rossler.dat");
         //coord_Traj(rossler (M, param), getT(param));
 
