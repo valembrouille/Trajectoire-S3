@@ -13,28 +13,28 @@ Il permet de calculer ensuite et grâce à tout ça la trajectoire d'un point da
 
 Plus en détail:
 
-fonction_init:
-sert à lire avec des scanf les paramètres de la trajectoire et coordonnées du point de départ pour tous les modules.
+fonction_init: 
+Sert à lire avec des scanf les paramètres de la trajectoire et coordonnées du point de départ pour tous les modules.
 
-parametres:
+parametres: 
 Permet de "créer" les paramètres utilisables pour les modules. (a,b,c,T_max)
 
-point:
+point: 
 Permet de "créer" les conditions initiales de la position du point.(x,y,z)
 
-position:
+position: 
 Permet de "créer" la position à un instant T d'un point. (x,y,z,t)
 
 Dans les 3 modules précedents il y a des fonctions qui créent, initialisent et modifient les strcutures.
 
 
-module_lorenz:
+module_lorenz: 
 Utilise les conditions de Lorenz. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
 
-module_rossler:
+module_rossler: 
 Utilise les conditions de Rossler. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
 
-module_user:
+module_user: 
 Demande à l'utilisateur de rentrer lui même ses coordonnées, conditions, paramètres etc dans un format spécial; celui de la polonaise inversée. Les fonctions ne sont pas finies ici.
 
 Dans les 3 fonctions précédentes, celles de calcul, il y a les fonctions d'initialisation et de calcul pour chaque module.
