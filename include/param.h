@@ -17,4 +17,6 @@ void setA( Param p, float n );
 void setB( Param p, float n );
 void setT_MAX( Param p, float n );
 
+Param lire_param();
+
 #endif

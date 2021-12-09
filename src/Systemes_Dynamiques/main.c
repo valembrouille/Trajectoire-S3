@@ -9,7 +9,8 @@
 //#include "../../include/rossler.h"
 
 int main (){
-    printf("\nQuel systeme voulez vous utiliser?\n-Tapez 1: Lorenz\n-Tapez 2: Rossler\n-Tapez 3: Je veux rentrer mes propres parametres et variations de vitesse\n");
+//    printf("\nQuel systeme voulez vous utiliser?\n-Tapez 1: Lorenz\n-Tapez 2: Rossler\n-Tapez 3: Je veux rentrer mes propres parametres et variations de vitesse\n");
+    printf("\nQuel systeme voulez vous utiliser?\n-Tapez 1: Lorenz\n-Tapez 2: Rossler\n");
     int a;
     float dt = 0.01;
     Position *pos;
@@ -17,7 +18,7 @@ int main (){
     Param param ;
     a= lireEntier();
     printf("Le système choisi est %d", a);
-    while ( a != 1 && a != 2 && a!=3){
+    while ( a != 1 && a != 2/* && a!=3*/){
         printf("Veuillez choisir un système de la LISTE\n");
         a = lireEntier();
         
@@ -31,18 +32,18 @@ int main (){
         param = lire_param();
         pos =  lorenz ( M,  param, dt);
         
-        coord_Traj(pos , getT_MAX(param),dt);
+        coord_Traj(pos , getT_MAX(param),dt, "lorenz.dat");
     
     }else if (a==2){
         printf("Le systeme choisi est celui des Forces de Rossler");
         M = lire_point();
         param = lire_param();
-        pos = rossler ( M, param, dt ) ;
+        coord_Traj(pos , getT_MAX(param),dt, "rossler.dat");
         //coord_Traj(rossler (M, param), getT(param));
 
     }else {
         printf("Vous rentrez vous même les coordonnées");
-        //coord_Traj(polonaise (M, p), p->T_max);
+        //coord_Traj(pos , getT_MAX(param),dt);
     }
     //il manque la librairie d'interfaçage entre le programme et le gnuplot pour le moment
     //à ce stade le programme:

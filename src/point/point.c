@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../../include/entrees.h"
 #include "../../include/point.h"
 
 typedef struct _point_s{
@@ -46,3 +47,16 @@ void setZ (Point M, float n){
     M->z = n;
 }
 
+Point lire_point(){
+    float x;
+    float y;
+    float z;
+    printf("x=");
+    lireDecimal(&x);
+    printf("y=");
+    lireDecimal(&y);
+    printf("z=");
+    lireDecimal(&z);
+    Point M = creer_point(x,y,z);
+    return M;
+}

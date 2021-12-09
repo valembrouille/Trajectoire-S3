@@ -3,11 +3,7 @@
 
 
 
-Point lire_point();
-Param lire_param();
+Position * rossler (Point M, Param param, float dt);
 
-Position * Creer_liste ( float T_max);
-Position * rossler (Point M, Param p, float dt){;
-void coord_Traj(Position * L, float T_max);
 
 #endif

@@ -5,7 +5,7 @@
 #include "../../include/entrees.h"
 #include "../../include/param.h"
 #include "../../include/lorenz.h"
-
+/*
 Point lire_point(){
     float x;
     float y;
@@ -35,7 +35,7 @@ Param lire_param(){
     lireDecimal(&T_max);
     Param param = creer_param(a,b,c,T_max);
     return param;
-}
+}*/
 
 /*
 Position * Creer_liste ( float T_max){

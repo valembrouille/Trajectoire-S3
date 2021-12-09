@@ -16,12 +16,7 @@ INC= ../../include
 EXEC= SystemesDynamiques
 SRC= main.c
 
-<<<<<<< HEAD
-=======
 LIBS=  $(LIB)/libinterface.a $(LIB)/liblorenz.a $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
->>>>>>> 82510fcd9e6de4e1bd6f5c78790740c10eafd837
-
-LIBS=  $(LIB)/liblorenz.a $(LIB)/librossler.a  $(LIB)/libentrees.a $(LIB)/libparam.a $(LIB)/libpoint.a $(LIB)/libposition.a 
 
 OBJ= $(SRC:.c=.o)
 # génère les .o correspondant aux .c de SRC 

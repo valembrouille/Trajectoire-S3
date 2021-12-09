@@ -7,11 +7,11 @@
 #include "../../include/interface.h"
 
 
-void coord_Traj(Position * L, float T_max, float dt){
+void coord_Traj(Position * L, float T_max, float dt, char* fileName){
 
     FILE *file;
     
-    file = fopen("file.dat","w");
+    file = fopen(fileName,"w");
     if (file == NULL){
          printf("Ereur ouverture fichier output \n");
     }

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../../include/entrees.h"
 #include "../../include/param.h"
 
 typedef struct _param_s{
@@ -51,5 +52,22 @@ void setC (Param p, float n){
 }
 void setT_MAX (Param p, float n){
     p->T_max = n;
+}
+
+Param lire_param(){
+    float a;
+    float b;
+    float c;
+    float T_max;
+    printf("a=");
+    lireDecimal(&a);
+    printf("b=");
+    lireDecimal(&b);
+    printf("c=");
+    lireDecimal(&c);
+    printf("Temps maximal=");
+    lireDecimal(&T_max);
+    Param param = creer_param(a,b,c,T_max);
+    return param;
 }
 

@@ -15,5 +15,6 @@ float getZ( Point M );
 void setX( Point M, float n );
 void setY( Point M, float n );
 void setZ( Point M, float n );
+Point lire_point();
 
 #endif
