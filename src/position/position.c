@@ -36,15 +36,11 @@ void setT( Position pos, float n ){
 }
 
 Position * Creer_liste_position ( float T_max, float dt){
-    //float dt = 0.01;
     int N = T_max / dt;  //fréquence de calcul sur [0,T_max]
     Position * L = malloc( (N + 1) * sizeof(Position) );   //liste de coordonnées en fontion du temps
-   // printf (" N= %d N * sizeof(Position) = %ld \n",N,  (N+1) * sizeof(Position)  );
     for (int i=0; i < N + 1; i++){
-  //printf ("creer_liste_9 \n");
         L[i]= malloc(sizeof(position_s));
         L[i]->point = allouer_point();
     }
-  //printf ("creer_liste_10 \n");
     return L;
 }

@@ -12,17 +12,17 @@ Il permet de calculer ensuite et grâce à tout ça la trajectoire d'un point da
 
 Plus en détail:
 
-fonction_init: 
+entrees: 
 Sert à lire des entiers et des décimaux avec des scanf et vérifier si ce sont bien des entiers ou des floats.
 
 parametres: 
-Permet de "créer" les paramètres utilisables pour les modules. (a,b,c,T_max)
+Permet de "créer" les paramètres utilisables pour les modules et initialiser. (a,b,c,T_max)
 
 point: 
-Permet de "créer" les conditions initiales de la position du point.(x,y,z)
+Permet de "créer" les conditions initiales de la position du point et initialiser.(x,y,z)
 
 position: 
-Permet de "créer" la position à un instant T d'un point. (x,y,z,t)
+Permet de "créer" la position à un instant T d'un point et initialiser. (x,y,z,t)
 
 Dans les 3 modules précedents il y a des fonctions qui créent, initialisent et modifient les strcutures (set et get).
 
@@ -36,7 +36,7 @@ Utilise le système dynamique de Rossler. Prends en "entrée" des paramètres et
 module_user: 
 Demande à l'utilisateur de rentrer lui même ses coordonnées, conditions, paramètres etc dans un format spécial; celui de la polonaise inversée. Les fonctions ne sont pas finies ici. 
 
-Dans les 3 fonctions précédentes, celles de calcul, il y a les fonctions d'initialisation et de calcul pour chaque module.
+Dans les 3 modules précédents, ceux de calcul, on appelle les fonctions d'initialisation et on fait le calcul.
 
 
 module_interface:
