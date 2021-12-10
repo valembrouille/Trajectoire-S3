@@ -13,7 +13,7 @@ Il permet de calculer ensuite et grâce à tout ça la trajectoire d'un point da
 Plus en détail:
 
 fonction_init: 
-Sert à lire avec des scanf les paramètres de la trajectoire et coordonnées du point de départ pour tous les modules.
+Sert à lire des entiers et des décimaux avec des scanf et vérifier si ce sont bien des entiers ou des floats.
 
 parametres: 
 Permet de "créer" les paramètres utilisables pour les modules. (a,b,c,T_max)
@@ -24,14 +24,14 @@ Permet de "créer" les conditions initiales de la position du point.(x,y,z)
 position: 
 Permet de "créer" la position à un instant T d'un point. (x,y,z,t)
 
-Dans les 3 modules précedents il y a des fonctions qui créent, initialisent et modifient les strcutures.
+Dans les 3 modules précedents il y a des fonctions qui créent, initialisent et modifient les strcutures (set et get).
 
 
 module_lorenz: 
-Utilise les conditions de Lorenz. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
+Utilise le système dynamique de Lorenz. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
 
 module_rossler: 
-Utilise les conditions de Rossler. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
+Utilise le système dynamique de Rossler. Prends en "entrée" des paramètres et un point. Retourne une liste avec les différentes positions de t=0 à t=T_max.
 
 module_user: 
 Demande à l'utilisateur de rentrer lui même ses coordonnées, conditions, paramètres etc dans un format spécial; celui de la polonaise inversée. Les fonctions ne sont pas finies ici. 
@@ -40,7 +40,7 @@ Dans les 3 fonctions précédentes, celles de calcul, il y a les fonctions d'ini
 
 
 module_interface:
-c'est le module qui fait le ien entre les modules rossler, user, lorenz et le gnuplot. Il prend en entrée une liste de positions et les mets dans un fichier au format accepté par gnuplot. Ce module n'est pas fini.
+c'est le module qui fait le lien entre les modules rossler, user, lorenz et le gnuplot. Il prend en entrée une liste de positions et les mets dans un fichier au format accepté par gnuplot. Ce module n'est pas fini.
 
 Systemes_Dynamiques:
 C'est le main. Il lie tous les modules précédents et "c'est ici" que l'utilisateur va choisir entre les différents systèmes possibles (Lorenz,Rossler,User).
