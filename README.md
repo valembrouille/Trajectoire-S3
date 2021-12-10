@@ -40,13 +40,15 @@ Dans les 3 modules précédents, ceux de calcul, on appelle les fonctions d'init
 
 
 module_interface:
-c'est le module qui fait le lien entre les modules rossler, user, lorenz et le gnuplot. Il prend en entrée une liste de positions et les mets dans un fichier au format accepté par gnuplot. Ce module n'est pas fini.
+c'est le module qui fait le lien entre les modules rossler, user, lorenz et le gnuplot. Il prend en entrée une liste de positions et les mets dans un fichier au format accepté par gnuplot. Ce module n'est pas fini. 
 
 Systemes_Dynamiques:
-C'est le main. Il lie tous les modules précédents et "c'est ici" que l'utilisateur va choisir entre les différents systèmes possibles (Lorenz,Rossler,User).
+C'est le main.c Il lie tous les modules précédents et "c'est ici" que l'utilisateur va choisir entre les différents systèmes possibles (Lorenz,Rossler,User).
+Pour l'exécuter, tapez ./SystemesDynamiques dans le dossier contenant le main.c .
 
 
 
-Les test.dat et .txt sont des fichiers tests pour le gnuplot.
-Il y a une librairie et un fichier.h par module. 
+Les lorenz.dat et .txt sont des fichiers tests pour le gnuplot.
+On a tracé la courbe avec le gnuplot.
+Il y a une librairie et un fichier.h par module.
 Le gitignore cache le dossier lib.
