@@ -1,4 +1,3 @@
-
 # commande de compilation 
 CC=gcc
 
@@ -38,14 +37,10 @@ $(EXEC) : $(OBJ)
 	ranlib $(LIB)/$(EXEC)
     # dans le répertoire donné par LIB 
 
- 
-
 # génère les .o  
 
 %.o: %.c %.h
 	@$(CC) -o $*.o -c $*.c $(CFLAGS)
-
- 
 
 # permet de supprimer tous les binaires 
 

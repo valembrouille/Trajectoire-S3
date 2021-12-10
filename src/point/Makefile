@@ -1,15 +1,8 @@
-# le fichier point.c est dans le répertoire module_point ainsi que ce Makefile 
-# pour générer la bibliothèque dans le répertoire lib : 
-# > make 
-# pour supprimer les binaires 
-# > make clean 
-
 # commande de compilation 
 CC=gcc
 
 # options de compilation 
-CFLAGS=  -Wextra -Wall -pedantic -g
-# l'option -g peut être conditionnelle 
+CFLAGS=  -Wextra -Wall -pedantic -g 
 
 # options d'édition de liens : librairies utilisées 
 LDFLAGS=  -lm
@@ -18,10 +11,7 @@ LDFLAGS=  -lm
 LIB= ../../lib
 
 # emplacement des .h du TP (à adapter à votre organisation) 
-
 INC= ../../include
-
- 
 
 EXEC= libpoint.a
 # cible 
@@ -43,14 +33,10 @@ $(EXEC) : $(OBJ)
 	ranlib $(LIB)/$(EXEC)
     # dans le répertoire donné par LIB 
 
- 
-
-# génère les .o  
+# génère les .o 
 
 %.o: %.c %.h
 	@$(CC) -o $*.o -c $*.c $(CFLAGS)
-
- 
 
 # permet de supprimer tous les binaires 
 

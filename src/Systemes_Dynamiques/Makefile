@@ -30,5 +30,11 @@ $(EXEC) : $(SRC)
 
 # permet de supprimer tous les binaires 
 
+run:
+	$(EXEC)
+
+debug:
+	gdb $(EXEC)
+
 clean:
 	rm -f $(EXEC)  

@@ -1,9 +1,3 @@
-# le fichier position.c est dans le répertoire module_position ainsi que ce Makefile 
-# pour générer la bibliothèque dans le répertoire lib : 
-# > make 
-# pour supprimer les binaires 
-# > make clean 
-
 # commande de compilation 
 CC=gcc
 
@@ -18,10 +12,7 @@ LDFLAGS=  -lm
 LIB= ../../lib
 
 # emplacement des .h du TP (à adapter à votre organisation) 
-
 INC= ../../include
-
- 
 
 EXEC= libposition.a
 # cible 
@@ -41,16 +32,12 @@ $(EXEC) : $(OBJ)
 	ar rcs $(LIB)/$(EXEC) $(OBJ)
     # les deux commandes suivantes créent la librairie  
 	ranlib $(LIB)/$(EXEC)
-    # dans le répertoire donné par LIB 
-
- 
+    # dans le répertoire donné par LIB  
 
 # génère les .o  
 
 %.o: %.c %.h
 	@$(CC) -o $*.o -c $*.c $(CFLAGS)
-
- 
 
 # permet de supprimer tous les binaires 
 
