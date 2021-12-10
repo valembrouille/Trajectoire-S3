@@ -1,8 +1,8 @@
 # projet S1
 
-Rouzade Ambre et Kammoun Meissem 
+Rouzade Ambre et Kammoun Meyssem 
 
-Nous avons travaillé presque tout le temps ensemble et souvent sur l'ordinateur de Meissem.
+Nous avons travaillé presque tout le temps ensemble et souvent sur l'ordinateur de Meyssem.
 
 
 
