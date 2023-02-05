@@ -1,4 +1,4 @@
-# projet S1
+# Trajectoire - projet S3
 
 Rouzade Ambre et Kammoun Meyssem 
 
